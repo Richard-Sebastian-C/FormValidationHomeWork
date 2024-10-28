@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUpForm</title>
+
+
+    <script lang="javascript">
+        function Check() {
+            var name = document.getElementById("fname").value;
+            var gmail = document.getElementById("fgmail").value;
+            var age = document.getElementById("age").value;
+            var year = document.getElementById("year").value;
+            if (name === "") {
+                alert("Name is Empty");
+                return false;
+            }
+            else if (gmail === "") {
+                alert("Gmail is Empty");
+                return false;
+            }
+            else if (!age.checkValidity()){
+                if(age > 35){
+                    alert(age + "is greater than 35");
+                }
+                else{
+                    alert(age + "is less than 12");
+                }
+                return false;
+            }
+            else if (!year.checkValidity()){
+                if(year > 2010){
+                    alert(year + "is greater than 2010");
+                }
+                else{
+                    alert(year + "is less than 1990");
+                }
+                return false;
+            }
+            else {
+                document.write("Submitted")
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>Sign Up Form</h1>
+    <form name="myForm">
+        Name: <input type="text" id="fname">
+        <br>
+        <br>
+        Gmail: <input type="text" id="fgmail">
+        <br>
+        <br>
+        Age: <input type="number" id="age" min="12" max="35">
+        <br>
+        <p style="color:rgb(228, 7, 7);"><b>AGE MIN is 12 and AGE MAX is 35.</b></p>
+        Year: <input type="number" id="year" min="1990" max="2010">
+        <br>
+        <p style="color:rgb(228, 7, 7);"><b>YEAR MIN is 1990 and YEAR MAX is 2010.</b></p>
+        <input type="submit" value="submit" onclick="Check()">
+        <p id="message"></p>
+    </form>
+    <style>
+        body {
+            background-color: aqua;
+            text-align: center;
+
+        }
+    </style>
+
+</body>
+
+</html>
